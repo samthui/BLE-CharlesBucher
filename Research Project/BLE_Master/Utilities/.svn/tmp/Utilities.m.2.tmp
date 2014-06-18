@@ -1,0 +1,452 @@
+//
+//  Utilities.m
+//  MasterLocking
+//
+//  Created by admin on 12/29/12.
+//  Copyright (c) 2012 Golden Key. All rights reserved.
+//
+
+#import "Utilities.h"
+#import "AppDelegate.h"
+
+#import "SystemConfiguration/SystemConfiguration.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define LOADIND_VIEW_TAG 222
+#define LOADING_LABEL_TAG 223
+#define LOADING_SPIN_VIEW_TAG 224
+
+@implementation Utilities
+
++(NSString*) UUIDfromCFUUID:(NSString*)CFUUID
+{ 
+    return [[CFUUID componentsSeparatedByString:@"> "] objectAtIndex:1];
+}
+
++(NSString*) UUIDofPeripheral:(CBPeripheral *)peripheral
+{
+    NSString* pUUID = [NSString stringWithFormat:@"%@", (NSString*)peripheral.UUID];
+    
+    return [Utilities UUIDfromCFUUID:pUUID];
+}
+
++(NSString*) describeDistanceFromRSSI:(int)RSSI
+{
+    NSString* distance;
+    if (RSSI > -40) {
+        distance = @"< 1m";
+    }
+    else if (RSSI > -46) {
+        distance = @"1 - 2m";
+    }
+    else if (RSSI > -52) {
+        distance = @"2 - 4m";
+    }
+    else if (RSSI > -58) {
+        distance = @"4 - 8m";
+    }
+    else if (RSSI > -64) {
+        distance = @"8 - 16m";
+    }
+    else  if (RSSI > -66){
+        distance = @"> 16m";
+    }
+    else {
+        distance = @"<>";
+    }
+    
+    return distance;
+}
+
++(NSRange)convertToRangeDistanceFromRSSI:(int)RSSI
+{
+    NSRange range;
+    //with data RSSI1    
+    if (RSSI > -70) {
+        range = NSMakeRange(0, STEP_0_5m);
+    }
+    else if (RSSI > - 77) {
+        range = NSMakeRange(1, STEP_0_5m);
+    }
+    else if (RSSI > - 84) {
+        range = NSMakeRange(2, STEP_0_5m);
+    }
+    else if (RSSI > - 91) {
+        range = NSMakeRange(3, STEP_0_5m);
+    }
+    else if (RSSI > - 99) {
+        range = NSMakeRange(4, STEP_0_5m);
+    }
+    else {
+        range = NSMakeRange(RANGE_5m, STEP_5_20m);
+    }
+    
+    //with data RSSI1 + RSSI2
+    //    if (RSSI >= -56) {
+    //        range = NSMakeRange(0, STEP_0_5m);
+    //    }
+    //    else if (RSSI >= -61) {
+    //        range = NSMakeRange(1, STEP_0_5m);
+    //    }
+    //    else if (RSSI >= - 67) {
+    //        range = NSMakeRange(2, STEP_0_5m);
+    //    }
+    //    else if (RSSI >= - 73) {
+    //        range = NSMakeRange(3, STEP_0_5m);
+    //    }
+    //    else if (RSSI >= - 80) {
+    //        range = NSMakeRange(4, STEP_0_5m);
+    //    }
+    //    else {
+    //        range = NSMakeRange(RANGE_5m, STEP_5_20m);
+    //    }
+    
+    return range;
+}
+
++(NSString*) describeDistanceFromRange:(NSRange )range
+{
+    NSString* description = [NSString stringWithFormat:@"%i - %im", range.location, range.location + range.length];
+    if (range.location == 5) {
+        description = @"> 5m";
+    }
+    //    NSLog(@"describeDistance %@", description);
+    return description;
+}
+
++(float) convertToDistanceFromRSSI:(int)RSSI
+{
+    float distance = 0.0;
+    
+    return distance;
+}
+
++(int)averageOfInts:(NSMutableArray *)integersArray
+{
+    int count = integersArray.count;
+    
+    double total = 0;
+    for (int i = 0; i < count; i++) {
+        float item = [[integersArray objectAtIndex:i] floatValue];
+        
+        total += item;
+    }
+    
+    int result = total/count;
+    return result;
+}
+
++(void) createStoredRSSIFile
+{  
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"RSSI.txt"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        
+        NSError* error;
+        if ([[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil])
+        {// success
+            if (![@"********************* hello *********************\n" writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
+                NSLog(@"ERROR: error write file %@", error);
+            }
+        }
+        else
+        {
+            NSLog(@"[%@] ERROR: attempting to write create MyFolder directory", [self class]);
+            NSAssert( FALSE, @"Failed to create file maybe out of disk space?");
+        }
+    }
+    else {
+        NSString* content = [NSString stringWithContentsOfFile:filePath
+                                                      encoding:NSUTF8StringEncoding
+                                                         error:NULL];
+        NSLog(@"%@", content);
+        
+        //        NSError* error;
+        //        [@"********************* hello *********************\n" writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        
+        
+        NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
+        [fileHandler seekToEndOfFile];
+        [fileHandler writeData:[@"********************* hello *********************\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandler closeFile];
+    }
+}
+
++(void) addData:(NSString *)data
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"RSSI.txt"];
+    
+    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
+    [fileHandler seekToEndOfFile];
+    [fileHandler writeData:[[NSString stringWithFormat:@"%@\n", data] dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandler closeFile];
+}
+
++ (BOOL)isRetinaVersion
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[UIScreen mainScreen] scale] == 2.00) {
+        return YES;
+    }else{
+        return NO;
+    }
+    
+}
+
+#pragma mark
+#pragma mark Button version 1.5
+
++ (UIButton*)commonBackButtonv1_5:(NSString*)title;
+{
+    UIButton *commonBack = [[UIButton alloc] initWithFrame:CGRectZero];
+//    title = [NSString stringWithFormat:@"   %@ ",title];
+//    [commonBack setTitle:title forState:UIControlStateNormal];
+//    [commonBack.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+//    commonBack.backgroundColor = [UIColor clearColor];
+//    [commonBack sizeToFit];
+//    CGRect rect = commonBack.bounds;
+//    rect.size.height = 31;
+//    rect.size.width += 8;
+//    [commonBack setFrame:rect];
+//    UIImage *normalButtonImage = [UIImage imageNamed:@"btn_back1_normal"];
+//    UIImage *selectedButtonImage = [UIImage imageNamed:@"btn_back1_selected"];
+//    
+//    if SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"){
+//        CGSize imageRect = normalButtonImage.size;
+//        normalButtonImage = [normalButtonImage resizableImageWithCapInsets:UIEdgeInsetsMake(15, 19, imageRect.height - 16, imageRect.width - 20)];
+//        imageRect = selectedButtonImage.size;
+//        selectedButtonImage = [selectedButtonImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, imageRect.height - 21, imageRect.width - 21)];
+//    }else{
+//        normalButtonImage = [normalButtonImage stretchableImageWithLeftCapWidth:19 topCapHeight:15];
+//        selectedButtonImage = [selectedButtonImage stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+//    }
+//    [commonBack setBackgroundImage:normalButtonImage forState:UIControlStateNormal];
+//    [commonBack setBackgroundImage:selectedButtonImage forState:UIControlStateHighlighted];
+    return [commonBack autorelease];
+}
++ (UIButton*)squareButtonv1_5:(NSString *)title
+{
+    UIButton *squareButton = [[UIButton alloc] initWithFrame:CGRectZero];
+//    title = [NSString stringWithFormat:@"  %@  ",title]; // for padding
+//    
+//    [squareButton setTitle:title forState:UIControlStateNormal];
+//    [squareButton.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+//    
+//    squareButton.backgroundColor = [UIColor clearColor];
+//    [squareButton sizeToFit];
+//    CGRect rect = squareButton.bounds;
+//    rect.size.height = 31;
+//    //    rect.size.width += ;
+//    [squareButton setFrame:rect];
+//    UIImage *normalButtonImage = [UIImage imageNamed:@"btn_square_normal"];
+//    UIImage *selectedButtonImage = [UIImage imageNamed:@"btn_square_selected"];
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")){
+//        CGSize imageRect = normalButtonImage.size;
+//        normalButtonImage = [normalButtonImage resizableImageWithCapInsets:UIEdgeInsetsMake(15, 19, imageRect.height - 16, imageRect.width - 20)];
+//        imageRect = selectedButtonImage.size;
+//        selectedButtonImage = [selectedButtonImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, imageRect.height - 21, imageRect.width - 21)];
+//    }else{
+//        normalButtonImage = [normalButtonImage stretchableImageWithLeftCapWidth:19 topCapHeight:15];
+//        selectedButtonImage = [selectedButtonImage stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+//    }
+//    [squareButton setBackgroundImage:normalButtonImage forState:UIControlStateNormal];
+//    [squareButton setBackgroundImage:selectedButtonImage forState:UIControlStateHighlighted];
+    return [squareButton autorelease];
+}
+
++(void)startLoading
+{
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    UIViewController *navi = [appDelegate.tabBarController.viewControllers objectAtIndex:appDelegate.tabBarController.selectedIndex];
+//    if (navi && [navi isKindOfClass:[UINavigationController class]]) {
+//        UIViewController *vc = [((UINavigationController *)navi) topViewController];
+//        if (vc && [vc isKindOfClass:[UIViewController class]]) {
+//            UIView * _loadingView = [vc.view viewWithTag:LOADIND_VIEW_TAG];
+//            if (!_loadingView) {
+//                _loadingView = [[UIView alloc] initWithFrame:CGRectMake(95, 150, 130, 110)];
+//                _loadingView.tag = LOADIND_VIEW_TAG;
+//                _loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+//                _loadingView.clipsToBounds = YES;
+//                _loadingView.layer.cornerRadius = 10.0;
+//                UIActivityIndicatorView *_spinnerView = (UIActivityIndicatorView*)[_loadingView viewWithTag:LOADING_SPIN_VIEW_TAG];
+//                if (!_spinnerView) {
+//                    _spinnerView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]autorelease];
+//                    _spinnerView.tag = LOADING_SPIN_VIEW_TAG;
+//                    [_loadingView addSubview:_spinnerView];
+//                    
+//                }
+//                _spinnerView.frame = CGRectMake(45, 30, _spinnerView.bounds.size.width, _spinnerView.bounds.size.height);
+//                [_spinnerView startAnimating];
+//                UILabel  *_loadingLabel = nil;
+//                _loadingLabel  = (UILabel*)[_loadingView viewWithTag:LOADING_LABEL_TAG];
+//                if (!_loadingLabel) {
+//                    _loadingLabel = [[[UILabel alloc] initWithFrame:CGRectMake(4, 75, 130, 22)]autorelease];
+//                    _loadingLabel.backgroundColor = [UIColor clearColor];
+//                    _loadingLabel.textColor = [UIColor whiteColor];
+//                    _loadingLabel.textAlignment = UITextAlignmentCenter;
+//                    _loadingLabel.text = @"Đang Xử Lý...";
+//                    _loadingLabel.font = [UIFont boldSystemFontOfSize:16];
+//                    _loadingLabel.tag = LOADING_LABEL_TAG;
+//                    [_loadingView addSubview:_loadingLabel];
+//                }
+//                [vc.view addSubview:_loadingView];
+//                [_loadingView release];
+//            }
+//            
+//        }
+//        
+//    }
+}
+
++(void)endLoading
+{
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    UIViewController *navi = [appDelegate.tabBarController.viewControllers objectAtIndex:appDelegate.tabBarController.selectedIndex];
+//    if (navi && [navi isKindOfClass:[UINavigationController class]]) {
+//        UIViewController *vc = [((UINavigationController *)navi) topViewController];
+//        if (vc && [vc isKindOfClass:[UIViewController class]]) {
+//            UIView *view = [vc.view viewWithTag:LOADIND_VIEW_TAG];
+//            if (view) {
+//                [view removeFromSuperview];
+//            }
+//        }
+//    }
+}
+
+
++(NSString *)convertString:(NSString *)inputText
+{
+    NSString *result = @"";
+    if ([inputText isEqualToString:@"Tổng hợp cước"]) {
+        result = @"taxitotal";
+    }
+    if ([inputText isEqualToString:@"taxitotal"]) {
+        result = @"Tổng hợp cước";
+    }
+    if ([inputText isEqualToString:@"Chi tiết cước"]) {
+        result = @"taxi";
+    }
+    if ([inputText isEqualToString:@"taxi"]) {
+        result = @"Chi tiết cước";
+    }
+    if ([inputText isEqualToString:@"Chốt ca"]) {
+        result = @"taxisession";
+    }
+    if ([inputText isEqualToString:@"taxisession"]) {
+        result = @"Chốt ca";
+    }
+    if ([inputText isEqualToString:@"Cuốc thoả thuận"]) {
+        result = @"taxideal";
+    }
+    if ([inputText isEqualToString:@"taxideal"]) {
+        result = @"Cuốc thoả thuận";
+    }
+    if ([inputText isEqualToString:@"Cuốc thoả thuận"]) {
+        result = @"taxideal";
+    }
+    if ([inputText isEqualToString:@"taxideal"]) {
+        result = @"Cuốc thoả thuận";
+    }
+    if ([inputText isEqualToString:@"Tổng hợp cảnh báo"]) {
+        result = @"xxx";
+    }
+    if ([inputText isEqualToString:@"xxx"]) {
+        result = @"Tổng hợp cảnh báo";
+    }
+    if ([inputText isEqualToString:@"Chi tiết xe bồn"]) {
+        result = @"xxx";
+    }
+    if ([inputText isEqualToString:@"xxx"]) {
+        result = @"Chi tiết xe bồn";
+    }
+    //bao cao chung
+    if ([inputText isEqualToString:@"total"]) {
+        result = @"Tổng hợp";
+    }
+    if ([inputText isEqualToString:@"Tổng hợp"]) {
+        result = @"total";
+    }
+    if ([inputText isEqualToString:@"detail"]) {
+        result = @"Chi tiết";
+    }
+    if ([inputText isEqualToString:@"Chi tiết"]) {
+        result = @"detail";
+    }
+    if ([inputText isEqualToString:@"parkstop"]) {
+        result = @"Dừng đỗ";
+    }
+    if ([inputText isEqualToString:@"Dừng đỗ"]) {
+        result = @"parkstop";
+    }
+    if ([inputText isEqualToString:@"opendoor"]) {
+        result = @"Đóng mở cửa";
+    }
+    if ([inputText isEqualToString:@"Đóng mở cửa"]) {
+        result = @"opendoor";
+    }
+    if ([inputText isEqualToString:@"excessive"]) {
+        result = @"Vượt tốc độ";
+    }
+    if ([inputText isEqualToString:@"Vượt tốc độ"]) {
+        result = @"excessive";
+    }
+    if ([inputText isEqualToString:@"driving"]) {
+        result = @"Thời gian lái";
+    }
+    if ([inputText isEqualToString:@"Thời gian lái"]) {
+        result = @"driving";
+    }
+    if ([inputText isEqualToString:@"logcar"]) {
+        result = @"Trạng thái";
+    }
+    if ([inputText isEqualToString:@"Trạng thái"]) {
+        result = @"logcar";
+    }
+    if ([inputText isEqualToString:@"cameras"]) {
+        result = @"Hình Ảnh";
+    }
+    if ([inputText isEqualToString:@"Hình ảnh"]) {
+        result = @"cameras";
+    }
+    if ([inputText isEqualToString:@"fuel"]) {
+        result = @"Nhiên liệu";
+    }
+    if ([inputText isEqualToString:@"Nhiên liệu"]) {
+        result = @"fuel";
+    }
+    if ([inputText isEqualToString:@"temperature"]) {
+        result = @"Cảm biến nhiệt";
+    }
+    if ([inputText isEqualToString:@"Cảm biến nhiệt"]) {
+        result = @"temperature";
+    }
+    if ([inputText isEqualToString:@"aircond"]) {
+        result = @"Bật tắt điều hoà";
+    }
+    if ([inputText isEqualToString:@"Bật tắt điều hoà"]) {
+        result = @"aircond";
+    }
+    if ([inputText isEqualToString:@"performance"]) {
+        result = @"Hiệu suất hoạt động";
+    }
+    if ([inputText isEqualToString:@"Hiệu suất hoạt động"]) {
+        result = @"performance";
+    }
+    if ([inputText isEqualToString:@"DESC"]) {
+        result = @"Ngày giảm dần";
+    }if ([inputText isEqualToString:@"Ngày giảm dần"]) {
+        result = @"DESC";
+    }
+    if ([inputText isEqualToString:@"ASC"]) {
+        result = @"Ngày tăng dần";
+    }
+    if ([inputText isEqualToString:@"Ngày tăng dần"]) {
+        result = @"ASC";
+    }
+    return result;
+}
+
+@end

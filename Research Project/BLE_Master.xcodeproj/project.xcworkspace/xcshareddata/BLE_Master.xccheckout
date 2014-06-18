@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A97F0352-0DEA-4472-8848-3643F9CA98E7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BLE_Master</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9600B3BF-B275-4401-9AE0-D061E81CA198</key>
+		<string>http://192.168.1.116/svn/itracking/branch/Mobile/iOS/BLE_Master/BLE_Master</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BLE_Master.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9600B3BF-B275-4401-9AE0-D061E81CA198</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>9600B3BF-B275-4401-9AE0-D061E81CA198</key>
+		<string>http://192.168.1.116/svn/itracking</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://192.168.1.116/svn/itracking/branch/Mobile/iOS/BLE_Master/BLE_Master/BLE_Master.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9600B3BF-B275-4401-9AE0-D061E81CA198</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9600B3BF-B275-4401-9AE0-D061E81CA198</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BLE_Master</string>
+		</dict>
+	</array>
+</dict>
+</plist>

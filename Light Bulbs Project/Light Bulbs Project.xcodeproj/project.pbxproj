@@ -1,0 +1,633 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1146CEAB195204BD00863A88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1146CEAA195204BD00863A88 /* Foundation.framework */; };
+		1146CEAD195204BD00863A88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1146CEAC195204BD00863A88 /* CoreGraphics.framework */; };
+		1146CEAF195204BE00863A88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1146CEAE195204BE00863A88 /* UIKit.framework */; };
+		1146CEB5195204BE00863A88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEB3195204BE00863A88 /* InfoPlist.strings */; };
+		1146CEB7195204BE00863A88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CEB6195204BE00863A88 /* main.m */; };
+		1146CEBB195204BE00863A88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CEBA195204BE00863A88 /* AppDelegate.m */; };
+		1146CEBE195204BE00863A88 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEBC195204BE00863A88 /* Main_iPhone.storyboard */; };
+		1146CEC1195204BE00863A88 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEBF195204BE00863A88 /* Main_iPad.storyboard */; };
+		1146CEC7195204BE00863A88 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CEC6195204BE00863A88 /* ScheduleViewController.m */; };
+		1146CEC9195204BE00863A88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEC8195204BE00863A88 /* Images.xcassets */; };
+		1146CED0195204BE00863A88 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1146CECF195204BE00863A88 /* XCTest.framework */; };
+		1146CED1195204BE00863A88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1146CEAA195204BD00863A88 /* Foundation.framework */; };
+		1146CED2195204BE00863A88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1146CEAE195204BE00863A88 /* UIKit.framework */; };
+		1146CEDA195204BE00863A88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1146CED8195204BE00863A88 /* InfoPlist.strings */; };
+		1146CEDC195204BE00863A88 /* Light_Bulbs_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CEDB195204BE00863A88 /* Light_Bulbs_ProjectTests.m */; };
+		1146CEED1952078F00863A88 /* hometronx.png in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEE81952078F00863A88 /* hometronx.png */; };
+		1146CEEE1952078F00863A88 /* off orange.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEE91952078F00863A88 /* off orange.PNG */; };
+		1146CEEF1952078F00863A88 /* off white.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEEA1952078F00863A88 /* off white.PNG */; };
+		1146CEF01952078F00863A88 /* on orange.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEEB1952078F00863A88 /* on orange.PNG */; };
+		1146CEF11952078F00863A88 /* on white.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEEC1952078F00863A88 /* on white.PNG */; };
+		1146CEF4195208A300863A88 /* MySwitchesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CEF3195208A300863A88 /* MySwitchesTableViewController.m */; };
+		1146CEFB195215B400863A88 /* AddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CEF9195215B400863A88 /* AddTableViewController.m */; };
+		1146CEFF195215E400863A88 /* AddTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1146CEFE195215E400863A88 /* AddTableViewController.xib */; };
+		1146CF03195216BF00863A88 /* BLEDiscoveryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF02195216BF00863A88 /* BLEDiscoveryHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1146CF09195216E700863A88 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF08195216E700863A88 /* Utilities.m */; };
+		1146CF0F19521CE300863A88 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF0C19521CE300863A88 /* Device.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1146CF1019521CE300863A88 /* DeviceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF0E19521CE300863A88 /* DeviceConfig.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1146CF1619522EFE00863A88 /* SavedDeivceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF1419522EFE00863A88 /* SavedDeivceTableViewCell.m */; };
+		1146CF1719522EFE00863A88 /* SavedDeivceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1146CF1519522EFE00863A88 /* SavedDeivceTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1146CED3195204BE00863A88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1146CE9F195204BD00863A88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1146CEA6195204BD00863A88;
+			remoteInfo = "Light Bulbs Project";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1146CEA7195204BD00863A88 /* Light Bulbs Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Light Bulbs Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1146CEAA195204BD00863A88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1146CEAC195204BD00863A88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1146CEAE195204BE00863A88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1146CEB2195204BE00863A88 /* Light Bulbs Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Light Bulbs Project-Info.plist"; sourceTree = "<group>"; };
+		1146CEB4195204BE00863A88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1146CEB6195204BE00863A88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1146CEB8195204BE00863A88 /* Light Bulbs Project-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Light Bulbs Project-Prefix.pch"; sourceTree = "<group>"; };
+		1146CEB9195204BE00863A88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1146CEBA195204BE00863A88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1146CEBD195204BE00863A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1146CEC0195204BE00863A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		1146CEC5195204BE00863A88 /* ScheduleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		1146CEC6195204BE00863A88 /* ScheduleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		1146CEC8195204BE00863A88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1146CECE195204BE00863A88 /* Light Bulbs ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Light Bulbs ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1146CECF195204BE00863A88 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1146CED7195204BE00863A88 /* Light Bulbs ProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Light Bulbs ProjectTests-Info.plist"; sourceTree = "<group>"; };
+		1146CED9195204BE00863A88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1146CEDB195204BE00863A88 /* Light_Bulbs_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Light_Bulbs_ProjectTests.m; sourceTree = "<group>"; };
+		1146CEE81952078F00863A88 /* hometronx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hometronx.png; sourceTree = "<group>"; };
+		1146CEE91952078F00863A88 /* off orange.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off orange.PNG"; sourceTree = "<group>"; };
+		1146CEEA1952078F00863A88 /* off white.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off white.PNG"; sourceTree = "<group>"; };
+		1146CEEB1952078F00863A88 /* on orange.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on orange.PNG"; sourceTree = "<group>"; };
+		1146CEEC1952078F00863A88 /* on white.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on white.PNG"; sourceTree = "<group>"; };
+		1146CEF2195208A300863A88 /* MySwitchesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySwitchesTableViewController.h; sourceTree = "<group>"; };
+		1146CEF3195208A300863A88 /* MySwitchesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySwitchesTableViewController.m; sourceTree = "<group>"; };
+		1146CEF8195215B400863A88 /* AddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewController.h; sourceTree = "<group>"; };
+		1146CEF9195215B400863A88 /* AddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewController.m; sourceTree = "<group>"; };
+		1146CEFE195215E400863A88 /* AddTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTableViewController.xib; sourceTree = "<group>"; };
+		1146CF01195216BF00863A88 /* BLEDiscoveryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDiscoveryHelper.h; sourceTree = "<group>"; };
+		1146CF02195216BF00863A88 /* BLEDiscoveryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDiscoveryHelper.m; sourceTree = "<group>"; };
+		1146CF05195216E700863A88 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1146CF06195216E700863A88 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		1146CF07195216E700863A88 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		1146CF08195216E700863A88 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		1146CF0B19521CE300863A88 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		1146CF0C19521CE300863A88 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		1146CF0D19521CE300863A88 /* DeviceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceConfig.h; sourceTree = "<group>"; };
+		1146CF0E19521CE300863A88 /* DeviceConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceConfig.m; sourceTree = "<group>"; };
+		1146CF1319522EFE00863A88 /* SavedDeivceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedDeivceTableViewCell.h; sourceTree = "<group>"; };
+		1146CF1419522EFE00863A88 /* SavedDeivceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedDeivceTableViewCell.m; sourceTree = "<group>"; };
+		1146CF1519522EFE00863A88 /* SavedDeivceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedDeivceTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1146CEA4195204BD00863A88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1146CEAD195204BD00863A88 /* CoreGraphics.framework in Frameworks */,
+				1146CEAF195204BE00863A88 /* UIKit.framework in Frameworks */,
+				1146CEAB195204BD00863A88 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1146CECB195204BE00863A88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1146CED0195204BE00863A88 /* XCTest.framework in Frameworks */,
+				1146CED2195204BE00863A88 /* UIKit.framework in Frameworks */,
+				1146CED1195204BE00863A88 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1146CE9E195204BD00863A88 = {
+			isa = PBXGroup;
+			children = (
+				1146CEB0195204BE00863A88 /* Light Bulbs Project */,
+				1146CED5195204BE00863A88 /* Light Bulbs ProjectTests */,
+				1146CEA9195204BD00863A88 /* Frameworks */,
+				1146CEA8195204BD00863A88 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1146CEA8195204BD00863A88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEA7195204BD00863A88 /* Light Bulbs Project.app */,
+				1146CECE195204BE00863A88 /* Light Bulbs ProjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1146CEA9195204BD00863A88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEAA195204BD00863A88 /* Foundation.framework */,
+				1146CEAC195204BD00863A88 /* CoreGraphics.framework */,
+				1146CEAE195204BE00863A88 /* UIKit.framework */,
+				1146CECF195204BE00863A88 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1146CEB0195204BE00863A88 /* Light Bulbs Project */ = {
+			isa = PBXGroup;
+			children = (
+				1146CF1119522EC600863A88 /* Customs */,
+				1146CF0A19521CE300863A88 /* Modals */,
+				1146CF04195216E700863A88 /* Utilities */,
+				1146CF00195216BF00863A88 /* BLEHelper */,
+				1146CEE51952078E00863A88 /* Resources */,
+				1146CEB9195204BE00863A88 /* AppDelegate.h */,
+				1146CEBA195204BE00863A88 /* AppDelegate.m */,
+				1146CEBC195204BE00863A88 /* Main_iPhone.storyboard */,
+				1146CEBF195204BE00863A88 /* Main_iPad.storyboard */,
+				1146CEF2195208A300863A88 /* MySwitchesTableViewController.h */,
+				1146CEF3195208A300863A88 /* MySwitchesTableViewController.m */,
+				1146CEC5195204BE00863A88 /* ScheduleViewController.h */,
+				1146CEC6195204BE00863A88 /* ScheduleViewController.m */,
+				1146CEF8195215B400863A88 /* AddTableViewController.h */,
+				1146CEF9195215B400863A88 /* AddTableViewController.m */,
+				1146CEC8195204BE00863A88 /* Images.xcassets */,
+				1146CEB1195204BE00863A88 /* Supporting Files */,
+			);
+			path = "Light Bulbs Project";
+			sourceTree = "<group>";
+		};
+		1146CEB1195204BE00863A88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEB2195204BE00863A88 /* Light Bulbs Project-Info.plist */,
+				1146CEB3195204BE00863A88 /* InfoPlist.strings */,
+				1146CEB6195204BE00863A88 /* main.m */,
+				1146CEB8195204BE00863A88 /* Light Bulbs Project-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1146CED5195204BE00863A88 /* Light Bulbs ProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEDB195204BE00863A88 /* Light_Bulbs_ProjectTests.m */,
+				1146CED6195204BE00863A88 /* Supporting Files */,
+			);
+			path = "Light Bulbs ProjectTests";
+			sourceTree = "<group>";
+		};
+		1146CED6195204BE00863A88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1146CED7195204BE00863A88 /* Light Bulbs ProjectTests-Info.plist */,
+				1146CED8195204BE00863A88 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1146CEE51952078E00863A88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEE61952078F00863A88 /* Images */,
+				1146CEFD195215E400863A88 /* Xibs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1146CEE61952078F00863A88 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEE71952078F00863A88 /* MySwitches */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		1146CEE71952078F00863A88 /* MySwitches */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEE81952078F00863A88 /* hometronx.png */,
+				1146CEE91952078F00863A88 /* off orange.PNG */,
+				1146CEEA1952078F00863A88 /* off white.PNG */,
+				1146CEEB1952078F00863A88 /* on orange.PNG */,
+				1146CEEC1952078F00863A88 /* on white.PNG */,
+			);
+			path = MySwitches;
+			sourceTree = "<group>";
+		};
+		1146CEFD195215E400863A88 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				1146CEFE195215E400863A88 /* AddTableViewController.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		1146CF00195216BF00863A88 /* BLEHelper */ = {
+			isa = PBXGroup;
+			children = (
+				1146CF01195216BF00863A88 /* BLEDiscoveryHelper.h */,
+				1146CF02195216BF00863A88 /* BLEDiscoveryHelper.m */,
+			);
+			path = BLEHelper;
+			sourceTree = "<group>";
+		};
+		1146CF04195216E700863A88 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1146CF05195216E700863A88 /* Constants.h */,
+				1146CF06195216E700863A88 /* Defines.h */,
+				1146CF07195216E700863A88 /* Utilities.h */,
+				1146CF08195216E700863A88 /* Utilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1146CF0A19521CE300863A88 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				1146CF0B19521CE300863A88 /* Device.h */,
+				1146CF0C19521CE300863A88 /* Device.m */,
+				1146CF0D19521CE300863A88 /* DeviceConfig.h */,
+				1146CF0E19521CE300863A88 /* DeviceConfig.m */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		1146CF1119522EC600863A88 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				1146CF1219522EC600863A88 /* Views */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
+		1146CF1219522EC600863A88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1146CF1319522EFE00863A88 /* SavedDeivceTableViewCell.h */,
+				1146CF1419522EFE00863A88 /* SavedDeivceTableViewCell.m */,
+				1146CF1519522EFE00863A88 /* SavedDeivceTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1146CEA6195204BD00863A88 /* Light Bulbs Project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1146CEDF195204BE00863A88 /* Build configuration list for PBXNativeTarget "Light Bulbs Project" */;
+			buildPhases = (
+				1146CEA3195204BD00863A88 /* Sources */,
+				1146CEA4195204BD00863A88 /* Frameworks */,
+				1146CEA5195204BD00863A88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Light Bulbs Project";
+			productName = "Light Bulbs Project";
+			productReference = 1146CEA7195204BD00863A88 /* Light Bulbs Project.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1146CECD195204BE00863A88 /* Light Bulbs ProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1146CEE2195204BE00863A88 /* Build configuration list for PBXNativeTarget "Light Bulbs ProjectTests" */;
+			buildPhases = (
+				1146CECA195204BE00863A88 /* Sources */,
+				1146CECB195204BE00863A88 /* Frameworks */,
+				1146CECC195204BE00863A88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1146CED4195204BE00863A88 /* PBXTargetDependency */,
+			);
+			name = "Light Bulbs ProjectTests";
+			productName = "Light Bulbs ProjectTests";
+			productReference = 1146CECE195204BE00863A88 /* Light Bulbs ProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1146CE9F195204BD00863A88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = KeyStoneSolar;
+				TargetAttributes = {
+					1146CECD195204BE00863A88 = {
+						TestTargetID = 1146CEA6195204BD00863A88;
+					};
+				};
+			};
+			buildConfigurationList = 1146CEA2195204BD00863A88 /* Build configuration list for PBXProject "Light Bulbs Project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1146CE9E195204BD00863A88;
+			productRefGroup = 1146CEA8195204BD00863A88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1146CEA6195204BD00863A88 /* Light Bulbs Project */,
+				1146CECD195204BE00863A88 /* Light Bulbs ProjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1146CEA5195204BD00863A88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1146CEC1195204BE00863A88 /* Main_iPad.storyboard in Resources */,
+				1146CEF01952078F00863A88 /* on orange.PNG in Resources */,
+				1146CEC9195204BE00863A88 /* Images.xcassets in Resources */,
+				1146CEEE1952078F00863A88 /* off orange.PNG in Resources */,
+				1146CEF11952078F00863A88 /* on white.PNG in Resources */,
+				1146CF1719522EFE00863A88 /* SavedDeivceTableViewCell.xib in Resources */,
+				1146CEED1952078F00863A88 /* hometronx.png in Resources */,
+				1146CEBE195204BE00863A88 /* Main_iPhone.storyboard in Resources */,
+				1146CEFF195215E400863A88 /* AddTableViewController.xib in Resources */,
+				1146CEB5195204BE00863A88 /* InfoPlist.strings in Resources */,
+				1146CEEF1952078F00863A88 /* off white.PNG in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1146CECC195204BE00863A88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1146CEDA195204BE00863A88 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1146CEA3195204BD00863A88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1146CEFB195215B400863A88 /* AddTableViewController.m in Sources */,
+				1146CEC7195204BE00863A88 /* ScheduleViewController.m in Sources */,
+				1146CEF4195208A300863A88 /* MySwitchesTableViewController.m in Sources */,
+				1146CF0F19521CE300863A88 /* Device.m in Sources */,
+				1146CEBB195204BE00863A88 /* AppDelegate.m in Sources */,
+				1146CF03195216BF00863A88 /* BLEDiscoveryHelper.m in Sources */,
+				1146CF09195216E700863A88 /* Utilities.m in Sources */,
+				1146CF1619522EFE00863A88 /* SavedDeivceTableViewCell.m in Sources */,
+				1146CF1019521CE300863A88 /* DeviceConfig.m in Sources */,
+				1146CEB7195204BE00863A88 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1146CECA195204BE00863A88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1146CEDC195204BE00863A88 /* Light_Bulbs_ProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1146CED4195204BE00863A88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1146CEA6195204BD00863A88 /* Light Bulbs Project */;
+			targetProxy = 1146CED3195204BE00863A88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1146CEB3195204BE00863A88 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1146CEB4195204BE00863A88 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1146CEBC195204BE00863A88 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1146CEBD195204BE00863A88 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		1146CEBF195204BE00863A88 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1146CEC0195204BE00863A88 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		1146CED8195204BE00863A88 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1146CED9195204BE00863A88 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1146CEDD195204BE00863A88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1146CEDE195204BE00863A88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1146CEE0195204BE00863A88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Light Bulbs Project/Light Bulbs Project-Prefix.pch";
+				INFOPLIST_FILE = "Light Bulbs Project/Light Bulbs Project-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1146CEE1195204BE00863A88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Light Bulbs Project/Light Bulbs Project-Prefix.pch";
+				INFOPLIST_FILE = "Light Bulbs Project/Light Bulbs Project-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1146CEE3195204BE00863A88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Light Bulbs Project.app/Light Bulbs Project";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Light Bulbs Project/Light Bulbs Project-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Light Bulbs ProjectTests/Light Bulbs ProjectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1146CEE4195204BE00863A88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Light Bulbs Project.app/Light Bulbs Project";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Light Bulbs Project/Light Bulbs Project-Prefix.pch";
+				INFOPLIST_FILE = "Light Bulbs ProjectTests/Light Bulbs ProjectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1146CEA2195204BD00863A88 /* Build configuration list for PBXProject "Light Bulbs Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1146CEDD195204BE00863A88 /* Debug */,
+				1146CEDE195204BE00863A88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1146CEDF195204BE00863A88 /* Build configuration list for PBXNativeTarget "Light Bulbs Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1146CEE0195204BE00863A88 /* Debug */,
+				1146CEE1195204BE00863A88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1146CEE2195204BE00863A88 /* Build configuration list for PBXNativeTarget "Light Bulbs ProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1146CEE3195204BE00863A88 /* Debug */,
+				1146CEE4195204BE00863A88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1146CE9F195204BD00863A88 /* Project object */;
+}

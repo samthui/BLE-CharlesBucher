@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040D8AB9172AAD5900F93CA1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8AB8172AAD5900F93CA1 /* CoreBluetooth.framework */; };
+		040D8ABE172AB0D000F93CA1 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D8ABC172AB0D000F93CA1 /* ViewController_iPad.xib */; };
+		040D8ABF172AB0D000F93CA1 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D8ABD172AB0D000F93CA1 /* ViewController_iPhone.xib */; };
+		040D8AD1172ABC3500F93CA1 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D8ACF172ABC3500F93CA1 /* DeviceViewController.m */; };
+		040D8AD4172ABC5200F93CA1 /* DeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D8AD3172ABC5200F93CA1 /* DeviceViewController.xib */; };
+		047B0FA6172AA937004BE5B4 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B0FA5172AA937004BE5B4 /* Utilities.m */; };
+		047B0FAB172AACF8004BE5B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B0FAA172AACF7004BE5B4 /* ViewController.m */; };
+		04919DE117296261006EC221 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04919DE017296261006EC221 /* UIKit.framework */; };
+		04919DE317296261006EC221 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04919DE217296261006EC221 /* Foundation.framework */; };
+		04919DE517296261006EC221 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04919DE417296261006EC221 /* CoreGraphics.framework */; };
+		04919DEB17296261006EC221 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04919DE917296261006EC221 /* InfoPlist.strings */; };
+		04919DED17296261006EC221 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04919DEC17296261006EC221 /* main.m */; };
+		04919DF117296261006EC221 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04919DF017296261006EC221 /* AppDelegate.m */; };
+		04919DF317296261006EC221 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04919DF217296261006EC221 /* Default.png */; };
+		04919DF517296261006EC221 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04919DF417296261006EC221 /* Default@2x.png */; };
+		04919DF717296261006EC221 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04919DF617296261006EC221 /* Default-568h@2x.png */; };
+		04919E1217296F4C006EC221 /* BLEDiscoveryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04919E1117296F4C006EC221 /* BLEDiscoveryHelper.m */; };
+		04919E16172971BD006EC221 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 04919E15172971BD006EC221 /* Device.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		040D8AB8172AAD5900F93CA1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		040D8ABC172AB0D000F93CA1 /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPad.xib; sourceTree = "<group>"; };
+		040D8ABD172AB0D000F93CA1 /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPhone.xib; sourceTree = "<group>"; };
+		040D8ACE172ABC3500F93CA1 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
+		040D8ACF172ABC3500F93CA1 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
+		040D8AD3172ABC5200F93CA1 /* DeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceViewController.xib; sourceTree = "<group>"; };
+		047B0FA2172AA699004BE5B4 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		047B0FA4172AA937004BE5B4 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		047B0FA5172AA937004BE5B4 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		047B0FA9172AACF7004BE5B4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		047B0FAA172AACF7004BE5B4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		04919DDC17296261006EC221 /* BLE_Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE_Master.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04919DE017296261006EC221 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		04919DE217296261006EC221 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04919DE417296261006EC221 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		04919DE817296261006EC221 /* BLE_Master-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLE_Master-Info.plist"; sourceTree = "<group>"; };
+		04919DEA17296261006EC221 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04919DEC17296261006EC221 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04919DEE17296261006EC221 /* BLE_Master-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLE_Master-Prefix.pch"; sourceTree = "<group>"; };
+		04919DEF17296261006EC221 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04919DF017296261006EC221 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04919DF217296261006EC221 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		04919DF417296261006EC221 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		04919DF617296261006EC221 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04919E0F17296EFB006EC221 /* BLEDiscoveryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDiscoveryHelper.h; sourceTree = "<group>"; };
+		04919E1117296F4C006EC221 /* BLEDiscoveryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDiscoveryHelper.m; sourceTree = "<group>"; };
+		04919E14172971BD006EC221 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		04919E15172971BD006EC221 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		04919E18172973F4006EC221 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04919DD917296261006EC221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040D8AB9172AAD5900F93CA1 /* CoreBluetooth.framework in Frameworks */,
+				04919DE117296261006EC221 /* UIKit.framework in Frameworks */,
+				04919DE317296261006EC221 /* Foundation.framework in Frameworks */,
+				04919DE517296261006EC221 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040D8ABB172AB0D000F93CA1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				040D8AD3172ABC5200F93CA1 /* DeviceViewController.xib */,
+				040D8ABC172AB0D000F93CA1 /* ViewController_iPad.xib */,
+				040D8ABD172AB0D000F93CA1 /* ViewController_iPhone.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		047B0FA7172AACF7004BE5B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				040D8ABB172AB0D000F93CA1 /* Xibs */,
+			);
+			name = Resources;
+			path = BLE_Master/Resources;
+			sourceTree = "<group>";
+		};
+		047B0FA8172AACF7004BE5B4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				047B0FA9172AACF7004BE5B4 /* ViewController.h */,
+				047B0FAA172AACF7004BE5B4 /* ViewController.m */,
+				040D8ACE172ABC3500F93CA1 /* DeviceViewController.h */,
+				040D8ACF172ABC3500F93CA1 /* DeviceViewController.m */,
+			);
+			name = ViewControllers;
+			path = BLE_Master/ViewControllers;
+			sourceTree = "<group>";
+		};
+		04919DD117296261006EC221 = {
+			isa = PBXGroup;
+			children = (
+				047B0FA7172AACF7004BE5B4 /* Resources */,
+				047B0FA8172AACF7004BE5B4 /* ViewControllers */,
+				04919E17172973B5006EC221 /* Utilities */,
+				04919E1317297161006EC221 /* Modals */,
+				04919E0E17296EFB006EC221 /* BLEHelper */,
+				04919DE617296261006EC221 /* BLE_Master */,
+				04919DDF17296261006EC221 /* Frameworks */,
+				04919DDD17296261006EC221 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04919DDD17296261006EC221 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04919DDC17296261006EC221 /* BLE_Master.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04919DDF17296261006EC221 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				040D8AB8172AAD5900F93CA1 /* CoreBluetooth.framework */,
+				04919DE017296261006EC221 /* UIKit.framework */,
+				04919DE217296261006EC221 /* Foundation.framework */,
+				04919DE417296261006EC221 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04919DE617296261006EC221 /* BLE_Master */ = {
+			isa = PBXGroup;
+			children = (
+				04919DEF17296261006EC221 /* AppDelegate.h */,
+				04919DF017296261006EC221 /* AppDelegate.m */,
+				04919DE717296261006EC221 /* Supporting Files */,
+			);
+			path = BLE_Master;
+			sourceTree = "<group>";
+		};
+		04919DE717296261006EC221 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04919DE817296261006EC221 /* BLE_Master-Info.plist */,
+				04919DE917296261006EC221 /* InfoPlist.strings */,
+				04919DEC17296261006EC221 /* main.m */,
+				04919DEE17296261006EC221 /* BLE_Master-Prefix.pch */,
+				04919DF217296261006EC221 /* Default.png */,
+				04919DF417296261006EC221 /* Default@2x.png */,
+				04919DF617296261006EC221 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04919E0E17296EFB006EC221 /* BLEHelper */ = {
+			isa = PBXGroup;
+			children = (
+				04919E0F17296EFB006EC221 /* BLEDiscoveryHelper.h */,
+				04919E1117296F4C006EC221 /* BLEDiscoveryHelper.m */,
+			);
+			name = BLEHelper;
+			path = BLE_Master/BLEHelper;
+			sourceTree = "<group>";
+		};
+		04919E1317297161006EC221 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				04919E14172971BD006EC221 /* Device.h */,
+				04919E15172971BD006EC221 /* Device.m */,
+			);
+			name = Modals;
+			path = BLE_Master/Modals;
+			sourceTree = "<group>";
+		};
+		04919E17172973B5006EC221 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				047B0FA4172AA937004BE5B4 /* Utilities.h */,
+				047B0FA5172AA937004BE5B4 /* Utilities.m */,
+				04919E18172973F4006EC221 /* Constants.h */,
+				047B0FA2172AA699004BE5B4 /* Defines.h */,
+			);
+			name = Utilities;
+			path = BLE_Master/Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04919DDB17296261006EC221 /* BLE_Master */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04919E0317296261006EC221 /* Build configuration list for PBXNativeTarget "BLE_Master" */;
+			buildPhases = (
+				04919DD817296261006EC221 /* Sources */,
+				04919DD917296261006EC221 /* Frameworks */,
+				04919DDA17296261006EC221 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLE_Master;
+			productName = BLE_Master;
+			productReference = 04919DDC17296261006EC221 /* BLE_Master.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04919DD317296261006EC221 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = samthui7;
+			};
+			buildConfigurationList = 04919DD617296261006EC221 /* Build configuration list for PBXProject "BLE_Master" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 04919DD117296261006EC221;
+			productRefGroup = 04919DDD17296261006EC221 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04919DDB17296261006EC221 /* BLE_Master */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04919DDA17296261006EC221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04919DEB17296261006EC221 /* InfoPlist.strings in Resources */,
+				04919DF317296261006EC221 /* Default.png in Resources */,
+				04919DF517296261006EC221 /* Default@2x.png in Resources */,
+				04919DF717296261006EC221 /* Default-568h@2x.png in Resources */,
+				040D8ABE172AB0D000F93CA1 /* ViewController_iPad.xib in Resources */,
+				040D8ABF172AB0D000F93CA1 /* ViewController_iPhone.xib in Resources */,
+				040D8AD4172ABC5200F93CA1 /* DeviceViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04919DD817296261006EC221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04919DED17296261006EC221 /* main.m in Sources */,
+				04919DF117296261006EC221 /* AppDelegate.m in Sources */,
+				04919E1217296F4C006EC221 /* BLEDiscoveryHelper.m in Sources */,
+				04919E16172971BD006EC221 /* Device.m in Sources */,
+				047B0FA6172AA937004BE5B4 /* Utilities.m in Sources */,
+				047B0FAB172AACF8004BE5B4 /* ViewController.m in Sources */,
+				040D8AD1172ABC3500F93CA1 /* DeviceViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		04919DE917296261006EC221 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04919DEA17296261006EC221 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04919E0117296261006EC221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04919E0217296261006EC221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04919E0417296261006EC221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Phien Tram (622539H7F3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Phien Tram (622539H7F3)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BLE_Master/BLE_Master-Prefix.pch";
+				INFOPLIST_FILE = "BLE_Master/BLE_Master-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3D2BFE53-B0B2-4588-AC58-1460ED59692C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D2BFE53-B0B2-4588-AC58-1460ED59692C";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		04919E0517296261006EC221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BLE_Master/BLE_Master-Prefix.pch";
+				INFOPLIST_FILE = "BLE_Master/BLE_Master-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04919DD617296261006EC221 /* Build configuration list for PBXProject "BLE_Master" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04919E0117296261006EC221 /* Debug */,
+				04919E0217296261006EC221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04919E0317296261006EC221 /* Build configuration list for PBXNativeTarget "BLE_Master" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04919E0417296261006EC221 /* Debug */,
+				04919E0517296261006EC221 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04919DD317296261006EC221 /* Project object */;
+}
