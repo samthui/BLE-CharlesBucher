@@ -10,9 +10,9 @@
 #define BLE_Master_Constant_h
 
 
-#define SERVICE_UUID                @"FFF0"
+#define SERVICE_UUID                @"1812"//@"FFF0"
 #define CHARACTERISTIC_1_UUID       @"FFF1"
-#define CHARACTERISTIC_2_UUID       @"FFF2"
+#define CHARACTERISTIC_2_UUID       @"FFF4"//@"FFF2"
 
 #define kStopScanTimer  2.0
 

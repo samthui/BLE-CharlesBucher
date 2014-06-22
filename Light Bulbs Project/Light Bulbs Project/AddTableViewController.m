@@ -11,6 +11,7 @@
 #import "Utilities.h"
 #import "AppDelegate.h"
 #import "DeviceConfig.h"
+#import "Device.h"
 
 
 @interface AddTableViewController () <BLEDiscoveryHelperDelegate>
@@ -32,7 +33,7 @@
     
     BLEDiscoveryHelper* centralBLEHelper = [BLEDiscoveryHelper sharedInstance];
     centralBLEHelper.BLEDiscoveryHelperDelegate = self;
-    [centralBLEHelper startScanning];
+    [centralBLEHelper reScan];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* cellID = @"DiscoveredDeviceCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     // Configure the cell...
     if (!cell) {
@@ -150,18 +151,22 @@
     DBLog(@"rowofthecell %d", rowOfTheCell);
     
     BLEDiscoveryHelper* centralBLEHelper = [BLEDiscoveryHelper sharedInstance];
-    NSMutableArray* discoveredDeviceArray= centralBLEHelper.discoveredDeviceList;
+    NSMutableArray* discoveredDeviceArray= centralBLEHelper.discoveredDeviceList;//[NSMutableArray arrayWithArray:centralBLEHelper.discoveredDeviceList];
     CBPeripheral* peripheral = (CBPeripheral*)[discoveredDeviceArray objectAtIndex:rowOfTheCell];
     NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
     
     //add to saved list and reload MySwitchesTable
-    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    NSMutableArray* deviceConfigArray = [Utilities arrayFromUserDefaultWithKey:(NSString*)kStoredDeviceList];
     DeviceConfig* deviceConfig = [DeviceConfig new];
     deviceConfig.UUID = pUUID;
     deviceConfig.name = pUUID;
-    deviceConfig.state = OFF;
-    [appDel.deviceArray addObject:deviceConfig];    
-    [Utilities saveToUserDefaultWithKey:(NSString*)kStoredDeviceList forArray:appDel.deviceArray];
+    deviceConfig.state = OFF_CMD;
+    [deviceConfigArray addObject:deviceConfig];
+    [Utilities saveToUserDefaultWithKey:(NSString*)kStoredDeviceList forArray:deviceConfigArray];
+    
+    //add to deviceList
+    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDel addDevice:peripheral];
     
     //remove added devices and reload table
     [discoveredDeviceArray removeObjectAtIndex:rowOfTheCell];

@@ -10,11 +10,14 @@
 #import "AddTableViewController.h"
 #import "AppDelegate.h"
 #import "DeviceConfig.h"
-#import "SavedDeivceTableViewCell.h"
+#import "SavedDeviceTableViewCell.h"
+#import "BLEDiscoveryHelper.h"
+#import "Utilities.h"
+#import "Device.h"
 
 #define SAVED_DEVICE_CELL_ID @"SavedDeviceCell"
 
-@interface MySwitchesTableViewController () <SavedDeivceTableViewCellDelegate>
+@interface MySwitchesTableViewController () <SavedDeviceTableViewCellDelegate>
 
 @end
 
@@ -45,7 +48,7 @@
     self.navigationItem.leftBarButtonItem = imageButton;
     
     //register Cell
-    [self.tableView registerNib:[UINib nibWithNibName:@"SavedDeivceTableViewCell" bundle:nil] forCellReuseIdentifier:SAVED_DEVICE_CELL_ID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SavedDeviceTableViewCell" bundle:nil] forCellReuseIdentifier:SAVED_DEVICE_CELL_ID];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,20 +68,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    return appDel.deviceArray.count;
+    NSMutableArray* deviceConfigArray = [Utilities arrayFromUserDefaultWithKey:(NSString*)kStoredDeviceList];
+    return deviceConfigArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SavedDeivceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SAVED_DEVICE_CELL_ID forIndexPath:indexPath];
+    SavedDeviceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SAVED_DEVICE_CELL_ID forIndexPath:indexPath];
     cell.delegate = self;
     
     // Configure the cell...
-    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    NSArray* deviceArray = appDel.deviceArray;
-    DeviceConfig* deviceConfig = (DeviceConfig*)[deviceArray objectAtIndex:indexPath.row];
+    NSMutableArray* deviceConfigArray = [Utilities arrayFromUserDefaultWithKey:(NSString*)kStoredDeviceList];
+    DeviceConfig* deviceConfig = (DeviceConfig*)[deviceConfigArray objectAtIndex:indexPath.row];
     [cell.nameLabel setText:deviceConfig.name];
     
     return cell;
@@ -142,21 +144,110 @@
 }
 
 #pragma mark - SavedDeivceTableViewCellDelegate
-- (void) onBtnClickedInCell:(SavedDeivceTableViewCell*)cell
+/*
+- (void) onBtnClickedInCell:(SavedDeviceTableViewCell*)cell
 {
     UITableView* table = self.tableView;//(UITableView *)[buttonCell superview];
     NSIndexPath* pathOfTheCell = [table indexPathForCell:cell];
     NSInteger rowOfTheCell = [pathOfTheCell row];
     DBLog(@"%i ON", rowOfTheCell);
+    
+    //connect to send on Command
+//    BLEDiscoveryHelper* centralBLEHelper = [BLEDiscoveryHelper sharedInstance];
+//    for (CBPeripheral* peripheral in centralBLEHelper.discoveredDeviceList) {
+//        NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
+//        if ([pUUID isEqualToString:cell.nameLabel.text]) {
+//            [centralBLEHelper connectPeripheral:peripheral];
+//        }
+//    }
+    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    for (Device* device in appDel.deviceArray) {
+        NSString* pUUID = [Utilities UUIDofPeripheral:device.peripheral];
+        if ([pUUID isEqualToString:cell.nameLabel.text]) {
+//            [device sendOnCommand];
+            if (device.peripheral.state == CBPeripheralStateDisconnected) {
+                [device connectToSendOnCommand];
+            }else{
+                [device sendOnCommand];
+            }
+            break;
+        }
+    }
 }
 
-- (void) offBtnClickedInCell:(SavedDeivceTableViewCell*)cell
+- (void) offBtnClickedInCell:(SavedDeviceTableViewCell*)cell
 {
     UITableView* table = self.tableView;//(UITableView *)[buttonCell superview];
     NSIndexPath* pathOfTheCell = [table indexPathForCell:cell];
     NSInteger rowOfTheCell = [pathOfTheCell row];
     DBLog(@"%i OFF", rowOfTheCell);
+    
+    //connect to send off Command
+//    BLEDiscoveryHelper* centralBLEHelper = [BLEDiscoveryHelper sharedInstance];
+//    for (CBPeripheral* peripheral in centralBLEHelper.discoveredDeviceList) {
+//        NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
+//        if ([pUUID isEqualToString:cell.nameLabel.text]) {
+//            [centralBLEHelper connectPeripheral:peripheral];
+//        }
+//    }
+    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    for (Device* device in appDel.deviceArray) {
+        NSString* pUUID = [Utilities UUIDofPeripheral:device.peripheral];
+        if ([pUUID isEqualToString:cell.nameLabel.text]) {
+//            [device sendOffCommand];
+            if (device.peripheral.state == CBPeripheralStateDisconnected) {
+                [device connectToSendOffCommand];
+            }else{
+                [device sendOffCommand];
+            }
+            break;
+        }
+    }
 }
+ */
+- (void) onBtnClickedInCell:(SavedDeviceTableViewCell*)cell
+{
+    UITableView* table = self.tableView;//(UITableView *)[buttonCell superview];
+    NSIndexPath* pathOfTheCell = [table indexPathForCell:cell];
+    NSInteger rowOfTheCell = [pathOfTheCell row];
+    DBLog(@"%i ON", rowOfTheCell);
+    
+    NSMutableArray* deviceConfigArray = [Utilities arrayFromUserDefaultWithKey:(NSString*)kStoredDeviceList];
+    DeviceConfig* devConfig = (DeviceConfig*)[deviceConfigArray objectAtIndex:rowOfTheCell];
+    NSString* theUUID = devConfig.UUID;
+    
+    CheckTableItem checkItem = [Utilities findDevice:theUUID];
+    if (checkItem.found) {
+        AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        Device* device = [appDel.deviceArray objectAtIndex:checkItem.index];
+        if (device.peripheral.state == CBPeripheralStateDisconnected) {
+            [device connectToSendOnCommand];
+        }else{
+            [device sendOnCommand];
+        }
+    }}
 
+- (void) offBtnClickedInCell:(SavedDeviceTableViewCell*)cell
+{
+    UITableView* table = self.tableView;//(UITableView *)[buttonCell superview];
+    NSIndexPath* pathOfTheCell = [table indexPathForCell:cell];
+    NSInteger rowOfTheCell = [pathOfTheCell row];
+    DBLog(@"%i OFF", rowOfTheCell);
+    
+    NSMutableArray* deviceConfigArray = [Utilities arrayFromUserDefaultWithKey:(NSString*)kStoredDeviceList];
+    DeviceConfig* devConfig = (DeviceConfig*)[deviceConfigArray objectAtIndex:rowOfTheCell];
+    NSString* theUUID = devConfig.UUID;
+    
+    CheckTableItem checkItem = [Utilities findDevice:theUUID];
+    if (checkItem.found) {
+        AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        Device* device = [appDel.deviceArray objectAtIndex:checkItem.index];
+        if (device.peripheral.state == CBPeripheralStateDisconnected) {
+            [device connectToSendOffCommand];
+        }else{
+            [device sendOffCommand];
+        }
+    }
+}
 
 @end

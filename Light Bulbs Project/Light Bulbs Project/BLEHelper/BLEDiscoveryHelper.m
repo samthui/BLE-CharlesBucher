@@ -6,6 +6,8 @@
 #import "Device.h"
 #import "DeviceConfig.h"
 
+#import "AppDelegate.h"
+
 static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
 
 @interface BLEDiscoveryHelper () <CBCentralManagerDelegate, CBPeripheralDelegate>
@@ -105,10 +107,11 @@ static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
     if ([self.stopScanTimer isValid]) {
         [self.stopScanTimer invalidate];
     }
-    self.stopScanTimer = [NSTimer scheduledTimerWithTimeInterval:kStopScanTimer target:self selector:@selector(stopScanning) userInfo:nil repeats:NO];
+//    self.stopScanTimer = [NSTimer scheduledTimerWithTimeInterval:kStopScanTimer target:self selector:@selector(stopScanning) userInfo:nil repeats:NO];
     
     //start scanning
 	[_centralManager scanForPeripheralsWithServices:uuidArray options:options];
+//	[_centralManager scanForPeripheralsWithServices:nil options:options];
 }
 
 - (void) stopScanning
@@ -215,7 +218,7 @@ static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
     if ([uuid isEqual:[CBUUID UUIDWithString:SERVICE_UUID]]) {
         //check saved
         NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
-        CheckTableItem checkItem = [Utilities findSavedObject:pUUID];
+        CheckTableItem checkItem = [Utilities findDeviceConfig:pUUID];
         
         if (!checkItem.found) {
             
@@ -250,8 +253,17 @@ static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
     if ([uuid isEqual:[CBUUID UUIDWithString:SERVICE_UUID]]) {        
         //check did add to owner
         NSString* pUUID = [Utilities UUIDofPeripheral:peripheral];
-        CheckTableItem checkItem = [Utilities findSavedObject:pUUID];
+        CheckTableItem checkItem = [Utilities findDeviceConfig:pUUID];
         if (checkItem.found) {
+            CheckTableItem checkItem2 = [Utilities findDevice:pUUID];
+            if (checkItem2.found) {
+//                return;
+            }else{
+                //add to deviceList
+                AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                [appDel addDevice:peripheral];
+            }
+            
             return;
         }
         
@@ -380,7 +392,7 @@ static BLEDiscoveryHelper *shareBLEDiscoveryHelper = nil;
     
     unsigned char phoneKey[4];
     
-    CheckTableItem checkItem = [self findSavedObject:[Utilities UUIDofPeripheral:bike.peripheral]];
+    CheckTableItem checkItem = [self :[Utilities UUIDofPeripheral:bike.peripheral]];
     if(checkItem.found)
     {
         StoredBike* storedBike = (StoredBike*)[[UserDefaultsHelper arrayFromUserDefaultWithKey:(NSString*)kStoredBikesList] objectAtIndex:checkItem.index];

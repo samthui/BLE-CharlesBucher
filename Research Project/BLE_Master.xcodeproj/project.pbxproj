@@ -227,6 +227,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = samthui7;
+				TargetAttributes = {
+					04919DDB17296261006EC221 = {
+						DevelopmentTeam = 368U6A2ZLR;
+					};
+				};
 			};
 			buildConfigurationList = 04919DD617296261006EC221 /* Build configuration list for PBXProject "BLE_Master" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -345,12 +350,13 @@
 		04919E0417296261006EC221 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BLE_Master/BLE_Master-Prefix.pch";
 				INFOPLIST_FILE = "BLE_Master/BLE_Master-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -359,12 +365,13 @@
 		04919E0517296261006EC221 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BLE_Master/BLE_Master-Prefix.pch";
 				INFOPLIST_FILE = "BLE_Master/BLE_Master-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

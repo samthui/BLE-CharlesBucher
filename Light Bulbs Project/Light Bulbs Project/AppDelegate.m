@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "Utilities.h"
-
+#import "BLEDiscoveryHelper.h"
 #import "DeviceConfig.h"
+#import "Device.h"
 
 @implementation AppDelegate
 
@@ -18,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.deviceArray = [Utilities arrayFromUserDefaultWithKey:(NSString*)kStoredDeviceList];
-    
+    self.deviceArray = [NSMutableArray array];
+    /*
     DeviceConfig* deviceConfig = [DeviceConfig new];
     deviceConfig.UUID = @"123";
     deviceConfig.name = @"abc";
@@ -31,7 +32,12 @@
     deviceConfig2.state = OFF;
     [self.deviceArray addObject:deviceConfig2];
     
-    [Utilities saveToUserDefaultWithKey:(NSString*)kStoredDeviceList forArray:self.deviceArray];
+     [Utilities saveToUserDefaultWithKey:(NSString*)kStoredDeviceList forArray:self.deviceArray];*/
+    
+    
+//    BLEDiscoveryHelper* centralBLEHelper = [BLEDiscoveryHelper sharedInstance];
+////    centralBLEHelper.BLEDiscoveryHelperDelegate = self;
+//    [centralBLEHelper startScanning];
     
     return YES;
 }
@@ -61,6 +67,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - public methods
+-(void)addDevice:(CBPeripheral *)peripheral
+{
+    Device* device = [[Device alloc] initWithPeripheral:peripheral];
+    [device connect];
+    [self.deviceArray addObject:device];
 }
 
 @end

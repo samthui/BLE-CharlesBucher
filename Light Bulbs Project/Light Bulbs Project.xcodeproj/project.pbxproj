@@ -34,8 +34,8 @@
 		1146CF09195216E700863A88 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF08195216E700863A88 /* Utilities.m */; };
 		1146CF0F19521CE300863A88 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF0C19521CE300863A88 /* Device.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1146CF1019521CE300863A88 /* DeviceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF0E19521CE300863A88 /* DeviceConfig.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1146CF1619522EFE00863A88 /* SavedDeivceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF1419522EFE00863A88 /* SavedDeivceTableViewCell.m */; };
-		1146CF1719522EFE00863A88 /* SavedDeivceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1146CF1519522EFE00863A88 /* SavedDeivceTableViewCell.xib */; };
+		1146CF1619522EFE00863A88 /* SavedDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1146CF1419522EFE00863A88 /* SavedDeviceTableViewCell.m */; };
+		1146CF1719522EFE00863A88 /* SavedDeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1146CF1519522EFE00863A88 /* SavedDeviceTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +89,9 @@
 		1146CF0C19521CE300863A88 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		1146CF0D19521CE300863A88 /* DeviceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceConfig.h; sourceTree = "<group>"; };
 		1146CF0E19521CE300863A88 /* DeviceConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceConfig.m; sourceTree = "<group>"; };
-		1146CF1319522EFE00863A88 /* SavedDeivceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedDeivceTableViewCell.h; sourceTree = "<group>"; };
-		1146CF1419522EFE00863A88 /* SavedDeivceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedDeivceTableViewCell.m; sourceTree = "<group>"; };
-		1146CF1519522EFE00863A88 /* SavedDeivceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedDeivceTableViewCell.xib; sourceTree = "<group>"; };
+		1146CF1319522EFE00863A88 /* SavedDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedDeviceTableViewCell.h; sourceTree = "<group>"; };
+		1146CF1419522EFE00863A88 /* SavedDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedDeviceTableViewCell.m; sourceTree = "<group>"; };
+		1146CF1519522EFE00863A88 /* SavedDeviceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedDeviceTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,9 +280,9 @@
 		1146CF1219522EC600863A88 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1146CF1319522EFE00863A88 /* SavedDeivceTableViewCell.h */,
-				1146CF1419522EFE00863A88 /* SavedDeivceTableViewCell.m */,
-				1146CF1519522EFE00863A88 /* SavedDeivceTableViewCell.xib */,
+				1146CF1319522EFE00863A88 /* SavedDeviceTableViewCell.h */,
+				1146CF1419522EFE00863A88 /* SavedDeviceTableViewCell.m */,
+				1146CF1519522EFE00863A88 /* SavedDeviceTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +334,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = KeyStoneSolar;
 				TargetAttributes = {
+					1146CEA6195204BD00863A88 = {
+						DevelopmentTeam = 368U6A2ZLR;
+					};
 					1146CECD195204BE00863A88 = {
 						TestTargetID = 1146CEA6195204BD00863A88;
 					};
@@ -368,7 +371,7 @@
 				1146CEC9195204BE00863A88 /* Images.xcassets in Resources */,
 				1146CEEE1952078F00863A88 /* off orange.PNG in Resources */,
 				1146CEF11952078F00863A88 /* on white.PNG in Resources */,
-				1146CF1719522EFE00863A88 /* SavedDeivceTableViewCell.xib in Resources */,
+				1146CF1719522EFE00863A88 /* SavedDeviceTableViewCell.xib in Resources */,
 				1146CEED1952078F00863A88 /* hometronx.png in Resources */,
 				1146CEBE195204BE00863A88 /* Main_iPhone.storyboard in Resources */,
 				1146CEFF195215E400863A88 /* AddTableViewController.xib in Resources */,
@@ -399,7 +402,7 @@
 				1146CEBB195204BE00863A88 /* AppDelegate.m in Sources */,
 				1146CF03195216BF00863A88 /* BLEDiscoveryHelper.m in Sources */,
 				1146CF09195216E700863A88 /* Utilities.m in Sources */,
-				1146CF1619522EFE00863A88 /* SavedDeivceTableViewCell.m in Sources */,
+				1146CF1619522EFE00863A88 /* SavedDeviceTableViewCell.m in Sources */,
 				1146CF1019521CE300863A88 /* DeviceConfig.m in Sources */,
 				1146CEB7195204BE00863A88 /* main.m in Sources */,
 			);
@@ -536,11 +539,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Light Bulbs Project/Light Bulbs Project-Prefix.pch";
 				INFOPLIST_FILE = "Light Bulbs Project/Light Bulbs Project-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -550,11 +556,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Light Bulbs Project/Light Bulbs Project-Prefix.pch";
 				INFOPLIST_FILE = "Light Bulbs Project/Light Bulbs Project-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -618,6 +627,7 @@
 				1146CEE1195204BE00863A88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1146CEE2195204BE00863A88 /* Build configuration list for PBXNativeTarget "Light Bulbs ProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +636,7 @@
 				1146CEE4195204BE00863A88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

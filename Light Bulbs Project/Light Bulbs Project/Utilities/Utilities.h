@@ -15,6 +15,7 @@ typedef struct {
 
 +(NSMutableArray*) arrayFromUserDefaultWithKey:(NSString*)key;
 +(void) saveToUserDefaultWithKey:(NSString*) key forArray:(NSMutableArray*)array;
-+(CheckTableItem) findSavedObject:(NSString *)UUID;
++(CheckTableItem) findDeviceConfig:(NSString *)UUID;
++(CheckTableItem) findDevice:(NSString*)UUID;
 
 @end

@@ -1,5 +1,7 @@
 #import "Utilities.h"
 #import "DeviceConfig.h"
+#import "AppDelegate.h"
+#import "Device.h"
 
 @implementation Utilities
 
@@ -39,7 +41,7 @@
     [prefs synchronize];
 }
 
-+(CheckTableItem) findSavedObject:(NSString *)UUID
++(CheckTableItem) findDeviceConfig:(NSString *)UUID
 {
     CheckTableItem ret = { -1, NO};
     
@@ -49,6 +51,28 @@
     for (index = 0; index < storedDeviceList.count; index++) {
         seekStoredDevice = (DeviceConfig*)[storedDeviceList objectAtIndex:index];
         if ([seekStoredDevice.UUID isEqual:UUID]) {
+            ret.found = YES;
+            ret.index = index;
+            
+            return ret;
+        }
+    }
+    
+    return ret;
+}
+
++(CheckTableItem) findDevice:(NSString *)UUID
+{
+    CheckTableItem ret = { -1, NO};
+    
+    AppDelegate* appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    NSMutableArray* deviceArray = appDel.deviceArray;
+    int index;
+    Device* seekingDevice;
+    for (index = 0; index < deviceArray.count; index++) {
+        seekingDevice = (Device*)[deviceArray objectAtIndex:index];
+        NSString* pUUID = [Utilities UUIDofPeripheral:seekingDevice.peripheral];
+        if ([pUUID isEqual:UUID]) {
             ret.found = YES;
             ret.index = index;
             

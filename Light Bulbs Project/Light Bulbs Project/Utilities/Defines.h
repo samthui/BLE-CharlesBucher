@@ -2,5 +2,4 @@
 #define BLE_Master_Defines_h
 
 
-
 #endif

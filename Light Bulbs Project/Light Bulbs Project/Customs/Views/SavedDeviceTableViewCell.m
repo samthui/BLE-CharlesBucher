@@ -1,14 +1,14 @@
 //
-//  SavedDeivceTableViewCell.m
+//  SavedDeviceTableViewCell.m
 //  Light Bulbs Project
 //
 //  Created by Ngoc Phuong Thanh Nguyen on 6/19/14.
 //  Copyright (c) 2014 KeyStoneSolar. All rights reserved.
 //
 
-#import "SavedDeivceTableViewCell.h"
+#import "SavedDeviceTableViewCell.h"
 
-@implementation SavedDeivceTableViewCell
+@implementation SavedDeviceTableViewCell
 
 @synthesize delegate = _delegate;
 @synthesize nameLabel;
